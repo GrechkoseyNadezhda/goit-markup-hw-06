@@ -6,6 +6,7 @@
     --dark-bg: #2F303A;
     --light-bg: #F5F4FA;
     --icons-color: #AFB1B8;
+    --btn-hover-color: #188CE8;
 
 }
 body {
@@ -53,6 +54,30 @@ img {
     clip: rect(0 0 0 0);
     overflow: hidden;
 }
+
+.btn {
+    display: block;
+    font-family: Roboto, sans-serif;
+    background: var(--main-color);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.88;
+    text-align: center;
+    letter-spacing: 0.06em;
+    color: var(--page-white-color);
+    cursor: pointer;
+    transition-property: background;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:hover, .btn:focus {
+    background: var(--btn-hover-color);
+}
+
 
 /* ----- Header ----- */
 
@@ -177,7 +202,6 @@ img {
 }
 
 
-
 /* ----- Service ----- */
 
 .service {
@@ -194,6 +218,7 @@ img {
 
 .backdrop {
     position: fixed;
+    z-index: 10;
     top: 0;
     left: 0;
     width: 100%;
@@ -216,8 +241,7 @@ img {
 .modal {
     position: absolute;
     width: 528px;
-    min-height: 581px;
-    padding: 8px;
+    padding: 40px;
     background: var(--page-white-color);
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
@@ -243,6 +267,13 @@ img {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition-property: fill;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-close:hover, .modal-close:focus {
+    fill: var(--main-color);
 }
 
 .service .title {
@@ -258,24 +289,138 @@ img {
     color: var(--page-white-color);
 }
 
-.service .btn {
-    display: block;
+.service-btn {
     margin: 0 auto;
     padding: 10px 32px;
-    font-family: Roboto, sans-serif;
-    background: var(--main-color);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-    border: none;
-    border-radius: 4px;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.88;
-    text-align: center;
-    letter-spacing: 0.06em;
-    color: var(--page-white-color);
-    cursor: pointer;
 }
 
+.modal-title {
+    margin-bottom: 30px;
+
+    font-weight: 700;
+    font-size: 20px;
+    line-height: calc(23/20);
+    text-align: center; 
+    color: var(--page-color);
+}
+
+.modal-input {
+    width: 100%;
+    padding: 12px;
+    padding-left: 42px;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    cursor: pointer;
+    transition-property: outline, border-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+.modal-input:focus{
+    outline: 1px solid transparent;
+    border-color: var(--main-color)
+
+}
+.modal-input:focus + .modal-icon {
+    fill: var(--main-color);
+}
+
+
+.textarea-wrap {
+    margin-bottom: 20px;
+}
+
+.modal-textarea {
+    height: 120px;
+    padding: 12px 16px;
+    resize: none;
+    overflow: auto;
+}
+
+.modal-textarea::placeholder {
+    font-size: 12px;
+    line-height: calc(14/12);
+    letter-spacing: 0.01em;
+    color: rgba(117, 117, 117, 0.5);
+}
+
+.modal-label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 12px;
+    line-height: calc(14/12);
+    letter-spacing: 0.01em;
+    color: var(--page-light-color);
+}
+
+.checkbox-wrap {
+    margin-bottom: 30px;
+}
+
+.policy-label {
+    font-size: 14px;
+    line-height: calc(24/14);
+    color: var(--page-light-color);
+}
+
+.modal-link {
+    color: var(--main-color);
+}
+
+.modal-btn {
+    margin: 0 auto;
+    padding: 10px 52px;
+}
+
+.form-wrap {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.modal-icon {
+    position: absolute;
+    left: 12px;
+    bottom: 11px;
+    fill: var(--page-color);
+    transition-property: fill;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.policy-label {
+    padding-left: 36px;
+}
+
+.policy-input {
+    appearance: none;
+    position: absolute;
+}
+
+.checkbox-policy-wrap {
+    position: relative;
+}
+
+.policy-icon{
+    position: absolute;
+
+    border-radius: 2px;
+    left: 12px;
+    bottom: 50%;
+    transform: translateY(50%);
+    background-color: var(--page-white-color);
+    border: 2px solid var(--page-color);
+    fill: transparent;
+    transition-property: fill, background-color, border;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.policy-input:checked ~ .policy-label .policy-icon {
+    fill: var(--page-white-color);
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+}
 
 /* ----- Benefits ----- */
 
@@ -500,8 +645,12 @@ img {
 
 .footer-wrapper {
     display: flex;
-    gap: 70px;
     align-items: baseline;
+}
+
+.footer-address {
+    margin-right: 70px;
+    width: 231px;
 }
 
 .page-footer .list {
@@ -555,7 +704,7 @@ img {
     color: var(--main-color);
 }
 
-.page-footer .social {
+.footer-title {
     margin-bottom: 20px;
     font-weight: 700;
     font-size: 14px;
@@ -631,6 +780,42 @@ img {
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
+.footer-subscription {
+    margin-left: auto;
+    width: 570px;
+}
+
+.footer-form {
+    display: flex;
+
+}
+
+.footer-form-btn {
+    padding: 10px 28px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.footer-input {
+    margin-right: 12px;
+    padding: 15px 16px;
+    width: 358px;    
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+    border-radius: 4px;
+    background-color: var(--dark-bg);
+    color: var(--page-white-color);
+}
+
+.footer-input::placeholder {
+    font-size: 16px;
+    line-height: calc(20/16);    
+    align-items: center;    
+    color: rgba(255, 255, 255, 0.6);
+}
+
+
 
 /* ----- Portfolio ----- */
 
@@ -680,7 +865,7 @@ img {
     width: 100%;
     height: 100%;
     background-color: rgba(33, 150, 243, 0.9);
-    transform: translateY(100%);
+    transform: translateY(101%);
     transition-property: transform;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
