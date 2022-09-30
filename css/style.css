@@ -295,11 +295,10 @@ img {
 }
 
 .modal-title {
-    margin-bottom: 30px;
-
+    margin-bottom: 12px;
     font-weight: 700;
     font-size: 20px;
-    line-height: calc(23/20);
+    line-height: calc(23 / 20);
     text-align: center; 
     color: var(--page-color);
 }
@@ -332,6 +331,7 @@ img {
 }
 
 .modal-textarea {
+    display: block;
     height: 120px;
     padding: 12px 16px;
     resize: none;
@@ -340,7 +340,7 @@ img {
 
 .modal-textarea::placeholder {
     font-size: 12px;
-    line-height: calc(14/12);
+    line-height: calc(14 / 12);
     letter-spacing: 0.01em;
     color: rgba(117, 117, 117, 0.5);
 }
@@ -349,7 +349,7 @@ img {
     display: block;
     margin-bottom: 4px;
     font-size: 12px;
-    line-height: calc(14/12);
+    line-height: calc(14 / 12);
     letter-spacing: 0.01em;
     color: var(--page-light-color);
 }
@@ -360,7 +360,7 @@ img {
 
 .policy-label {
     font-size: 14px;
-    line-height: calc(24/14);
+    line-height: calc(24 / 14);
     color: var(--page-light-color);
 }
 
@@ -389,7 +389,9 @@ img {
 }
 
 .policy-label {
-    padding-left: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .policy-input {
@@ -398,16 +400,11 @@ img {
 }
 
 .checkbox-policy-wrap {
-    position: relative;
 }
 
 .policy-icon{
-    position: absolute;
-
+margin-right: 8px;
     border-radius: 2px;
-    left: 12px;
-    bottom: 50%;
-    transform: translateY(50%);
     background-color: var(--page-white-color);
     border: 2px solid var(--page-color);
     fill: transparent;
@@ -787,7 +784,6 @@ img {
 
 .footer-form {
     display: flex;
-
 }
 
 .footer-form-btn {
@@ -797,10 +793,14 @@ img {
     align-items: center;
 }
 
-.footer-input {
+.footer-label {
     margin-right: 12px;
+}
+
+.footer-input {
     padding: 15px 16px;
     width: 358px;    
+    height: 50px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
     border-radius: 4px;
@@ -810,7 +810,7 @@ img {
 
 .footer-input::placeholder {
     font-size: 16px;
-    line-height: calc(20/16);    
+    line-height: calc(20 / 16);    
     align-items: center;    
     color: rgba(255, 255, 255, 0.6);
 }
